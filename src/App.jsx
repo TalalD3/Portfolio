@@ -65,19 +65,24 @@ const tools = [
 
 const services = [
   {
-    title: 'Web Development',
+    title: 'E-Commerce Platforms',
+    icon: SiNextdotjs,
+    text: 'Multilingual storefronts, admin dashboards, product catalogs, order flows, uploads, analytics, tracking pixels, and integrations built for real selling.',
+  },
+  {
+    title: 'Business Dashboards',
     icon: Code2,
-    text: 'Full-stack web & SaaS apps with React, Next.js and Node - from dashboards to e-commerce platforms.',
+    text: 'Operational tools for inventory, finance, reports, clients, suppliers, roles, permissions, and workflows that teams can use every day.',
   },
   {
-    title: 'Graphic Design',
+    title: 'Desktop Apps',
+    icon: SiElectron,
+    text: 'Offline-first Electron apps with local data, sync options, barcode flows, licensing, and polished interfaces for business operations.',
+  },
+  {
+    title: 'Brand & Content Design',
     icon: Palette,
-    text: 'Brand visuals, posters, product mockups and ad creatives crafted in Photoshop.',
-  },
-  {
-    title: 'Video Editing',
-    icon: Film,
-    text: 'Promo videos, reels and edits with After Effects, DaVinci Resolve and Sony Vegas.',
+    text: 'Brand visuals, product mockups, posters, landing imagery, short promos, and launch content shaped to match the product.',
   },
 ]
 
@@ -145,6 +150,33 @@ const stats = [
   'Full-Stack',
   'Available for freelance',
   'Arabic / French / English',
+]
+
+const resumeItems = [
+  {
+    label: 'Education',
+    title: "Master's in Computer Science",
+    detail:
+      'Data Engineering & Web Technologies, focused on full-stack systems, databases, and practical web architecture.',
+  },
+  {
+    label: 'Focus',
+    title: 'Full-stack product development',
+    detail:
+      'React, Next.js, Node, MongoDB, Electron, SQLite, Supabase, authentication, dashboards, and production-ready UI.',
+  },
+  {
+    label: 'Market Fit',
+    title: 'Arabic / French / English delivery',
+    detail:
+      'Comfortable building bilingual and RTL-ready products for Algerian businesses, stores, and internal teams.',
+  },
+  {
+    label: 'Creative Range',
+    title: 'Design and video support',
+    detail:
+      'Photoshop, After Effects, DaVinci Resolve, and Sony Vegas for visuals that help the product feel complete.',
+  },
 ]
 
 function smoothScrollTo(hash) {
@@ -325,7 +357,7 @@ function Hero() {
           variants={heroItems}
           className="mb-6 text-xs font-semibold uppercase tracking-[0.34em] text-[#C2A878]"
         >
-          Full-stack developer · Designer · Video editor
+          Full-stack developer / Designer / Video editor
         </motion.p>
         <motion.h1
           variants={heroItems}
@@ -391,9 +423,9 @@ function Services() {
     <section id="services" className="section-spacing bg-[#0B0B0B]">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal>
-          <SectionHeading eyebrow="Services" title="What I" italic="Do" />
+          <SectionHeading eyebrow="Services" title="Build" italic="Packages" />
         </Reveal>
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
+        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
@@ -576,6 +608,26 @@ function SelectedWork() {
             />
           ))}
         </div>
+
+        <Reveal className="mt-14 border-y border-white/10 py-10">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#C2A878]">
+                Available for freelance
+              </p>
+              <h3 className="mt-3 font-serif text-4xl leading-none text-[#EDEAE3] sm:text-5xl">
+                Need a store, dashboard, or desktop app like this?
+              </h3>
+              <p className="mt-4 max-w-2xl leading-7 text-[#9A958C]">
+                I can help shape the product, build the system, and polish the visuals so
+                it feels ready for real users.
+              </p>
+            </div>
+            <ButtonLink href="#contact" className="w-full sm:w-max">
+              Start a Project <Sparkles size={16} />
+            </ButtonLink>
+          </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -605,8 +657,15 @@ function About() {
           <p className="text-xl leading-9 text-[#D6D0C7]">
             I'm Talal Douibi, a full-stack developer and digital creative based in Setif,
             Algeria. I'm finishing a Master's in Computer Science (Data Engineering & Web
-            Technologies) and I build SaaS platforms, e-commerce systems and desktop apps -
-            then handle the visuals and video too. I work in Arabic, French and English.
+            Technologies) and I build SaaS platforms, e-commerce systems, dashboards, and
+            offline-first desktop apps.
+          </p>
+          <p className="mt-6 text-lg leading-8 text-[#9A958C]">
+            I like products that are useful before they are flashy: clean UI, strong data
+            models, practical workflows, and details that respect how Algerian businesses
+            actually work. I can move from backend logic to interface polish, Arabic/French/
+            English content, brand visuals, and launch videos without losing the product
+            thread.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             {stats.map((stat) => (
@@ -624,6 +683,41 @@ function About() {
   )
 }
 
+function Resume() {
+  return (
+    <section className="section-spacing border-y border-white/10 bg-[#101010]">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <SectionHeading eyebrow="Resume" title="Quick" italic="Snapshot" />
+          <a
+            href={publicAsset('talal-douibi-cv.pdf')}
+            download
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-[#EDEAE3] transition hover:border-[#C2A878] hover:text-[#C2A878] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C2A878] sm:w-max"
+          >
+            Download CV <Download size={16} />
+          </a>
+        </Reveal>
+
+        <div className="mt-12 grid gap-4 md:grid-cols-2">
+          {resumeItems.map((item, index) => (
+            <Reveal key={item.title} delay={index * 0.06}>
+              <article className="h-full rounded-lg border border-white/10 bg-[#0B0B0B] p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#C2A878]">
+                  {item.label}
+                </p>
+                <h3 className="mt-4 font-serif text-3xl leading-none text-[#EDEAE3]">
+                  {item.title}
+                </h3>
+                <p className="mt-4 leading-7 text-[#9A958C]">{item.detail}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function ClosingCta() {
   const repeated = useMemo(() => Array.from({ length: 16 }, (_, index) => index), [])
 
@@ -636,7 +730,7 @@ function ClosingCta() {
               key={item}
               className="font-serif text-3xl uppercase italic text-[#C2A878]"
             >
-              Let's Talk ·
+              Let's Talk /
             </span>
           ))}
         </div>
@@ -763,23 +857,23 @@ function Contact() {
               className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#C2A878] bg-[#C2A878] px-5 py-3 text-sm font-semibold text-[#0B0B0B] transition hover:bg-transparent hover:text-[#EDEAE3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C2A878] disabled:cursor-not-allowed disabled:opacity-60 sm:w-max"
             >
               <Mail size={16} />{' '}
-              {status === 'sending' ? 'Sending…' : 'Send Message'} <Send size={15} />
+              {status === 'sending' ? 'Sending...' : 'Send Message'} <Send size={15} />
             </button>
             {status === 'success' && (
-              <p className="text-sm text-[#8BC48A]">Message sent — I&apos;ll get back to you soon.</p>
+              <p className="text-sm text-[#8BC48A]">Message sent - I&apos;ll get back to you soon.</p>
             )}
             {status === 'error' && (
               <p className="text-sm text-[#E08A8A]">
                 {accessKey
                   ? 'Something went wrong. Try again or email me directly.'
-                  : 'Form not configured yet — add your Web3Forms key (see .env.example) or email me directly.'}
+                  : 'Form not configured yet - add your Web3Forms key (see .env.example) or email me directly.'}
               </p>
             )}
           </form>
         </Reveal>
       </div>
       <div className="border-t border-white/10 px-5 py-6 text-center text-sm text-[#77716A]">
-        © 2026 Talal Douibi. All rights reserved.
+        2026 Talal Douibi. All rights reserved.
       </div>
     </footer>
   )
@@ -795,6 +889,7 @@ function App() {
       <Services />
       <SelectedWork />
       <About />
+      <Resume />
       <ClosingCta />
       <Contact />
     </main>

@@ -39,8 +39,9 @@ const navLinks = [
 ]
 
 // REPLACE: hero portrait
-const heroPortrait = '/images/talal hero.jpg'
-const heroPortraitPhone = '/images/talal hero - phone.jpg'
+const publicAsset = (path) => `${import.meta.env.BASE_URL}${path}`
+const heroPortrait = publicAsset('images/talal hero.jpg')
+const heroPortraitPhone = publicAsset('images/talal hero - phone.jpg')
 
 const tools = [
   { label: 'React', icon: SiReact },
@@ -94,8 +95,8 @@ const projects = [
     ],
     tags: ['Next.js 14', 'MongoDB', 'NextAuth', 'Tailwind CSS', 'shadcn/ui', 'Uploadthing'],
     images: [
-      '/images/buytech-storefront-showcase.jpg',
-      '/images/buytech-admin-showcase.jpg',
+      publicAsset('images/buytech-storefront-showcase.jpg'),
+      publicAsset('images/buytech-admin-showcase.jpg'),
     ],
   },
   {
@@ -111,8 +112,8 @@ const projects = [
     ],
     tags: ['React.js', 'Electron', 'SQLite', 'Supabase', 'Barcode'],
     images: [
-      '/images/managit-dashboard-showcase.jpg',
-      '/images/managit-deliveries-showcase.jpg',
+      publicAsset('images/managit-dashboard-showcase.jpg'),
+      publicAsset('images/managit-deliveries-showcase.jpg'),
     ],
   },
   {
@@ -348,7 +349,7 @@ function Hero() {
             Let's Talk
           </ButtonLink>
           <a
-            href="/talal-douibi-cv.pdf"
+            href={publicAsset('talal-douibi-cv.pdf')}
             download
             className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-[#EDEAE3] transition hover:border-[#C2A878] hover:text-[#C2A878] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C2A878]"
           >

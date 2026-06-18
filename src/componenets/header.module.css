@@ -1,0 +1,61 @@
+.wrap {
+    position: fixed;
+    top: 24px;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+    transition: top 0.3s ease;
+  }
+  .scrolled { top: 16px; }
+  
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 0.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 6px 8px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .pillScrolled {
+    background: rgba(15, 15, 20, 0.85);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+  
+  .logo {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    padding: 6px 14px 6px 10px;
+    margin-right: 4px;
+    border-right: 0.5px solid rgba(255, 255, 255, 0.12);
+    letter-spacing: 0.02em;
+  }
+  
+  .link {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 6px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+  }
+  .link:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+  .active { color: #fff !important; background: rgba(255, 255, 255, 0.14); }
+  
+  .cta {
+    font-size: 13px;
+    font-weight: 500;
+    color: #0f0f13;
+    background: #fff;
+    padding: 6px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    margin-left: 4px;
+    transition: opacity 0.2s;
+  }
+  .cta:hover { opacity: 0.88; }

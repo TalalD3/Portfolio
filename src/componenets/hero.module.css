@@ -1,0 +1,170 @@
+.section {
+    min-height: 100vh;
+    background: #0d0d12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    width: 100%;
+    max-width: 1100px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .left { flex: 1; animation: fadeUp 0.7s ease both; }
+  .right {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    animation: fadeIn 0.8s ease 0.2s both;
+  }
+  
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(99,102,241,0.12);
+    border: 0.5px solid rgba(99,102,241,0.3);
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 12px;
+    color: #a5b4fc;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+  .badgeDot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #1eb300;
+    animation: blink 1.4s ease-in-out infinite;
+  }
+  
+  .name {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .accent { color: #6366f1; }
+  
+  .role {
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 16px;
+  }
+  .desc {
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    line-height: 1.7;
+    max-width: 440px;
+    margin-bottom: 32px;
+  }
+  
+  .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  
+  .btnPrimary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #fff; color: #0d0d12;
+    font-size: 14px; font-weight: 500;
+    padding: 11px 24px; border-radius: 999px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .btnPrimary:hover { opacity: 0.88; transform: translateY(-2px); }
+  
+  .btnOutline {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    padding: 11px 24px; border-radius: 999px;
+    border: 0.5px solid rgba(255,255,255,0.18);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btnOutline:hover { background: rgba(255,255,255,0.07); color: #fff; transform: translateY(-2px); }
+  
+  .socials { display: flex; gap: 10px; margin-top: 24px; }
+  .socialIcon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    border: 0.5px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.4);
+    font-size: 16px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .socialIcon:hover { border-color: rgba(255,255,255,0.3); color: #fff; background: rgba(255,255,255,0.06); }
+  
+  .imgWrap { animation: float 4s ease-in-out infinite; }
+  .imgRing {
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(99,102,241,0.35);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .imgRing::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 0.5px solid rgba(99,102,241,0.15);
+  }
+  .imgAvatar {
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .imgAvatar img { width: 100%; height: 100%; object-fit: cover; }
+  
+  .statsRow { display: flex; gap: 12px; }
+  .statCard {
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 10px 16px;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .statNum { font-size: 18px; font-weight: 500; color: #fff; }
+  .statLabel { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 2px; letter-spacing: 0.06em; }
+  
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-12px); }
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; } 50% { opacity: 0; }
+  }
